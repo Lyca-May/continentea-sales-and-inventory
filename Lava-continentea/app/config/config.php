@@ -80,7 +80,10 @@ $config['ENVIRONMENT']             = 'development';
 | WARNING: You MUST set this value!
 |
 */
+// <<<<<<< HEAD
 $config['base_url'] 				= 'http://localhost/lava-project/continentea-sales-and-inventory/Lava-continentea/';
+
+
 
 /*
 |--------------------------------------------------------------------------

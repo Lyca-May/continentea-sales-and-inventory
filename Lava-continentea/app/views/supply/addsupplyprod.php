@@ -11459,8 +11459,9 @@ body.sidebar-toggled footer.sticky-footer {
                               <br>
                               <div class="col">
                               <label for="gender"></label>
-                                <select class = "form-control" name="name">
-                                <?php foreach ($data as $names): ?> 
+                                <select class = "form-control" name="supplier_name">
+                                  <option value="">-select-</option>
+                                <?php foreach ($supplier_names as $names): ?> 
                                   <option value="<?= $names['name']?>"> <?= $names['name']?> </option>
                                   <?php endforeach; ?>
                                 </select>

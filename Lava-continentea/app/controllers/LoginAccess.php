@@ -290,7 +290,7 @@ class LoginAccess extends Controller {
     // }
     
     public function addnewsupply(){
-        $data = $this->LoginAccess_model->getallsuppliername();
+        $data['supplier_names'] = $this->LoginAccess_model->getallsuppliername();
         $this->call->view('supply/addsupplyprod', $data);
 
 
