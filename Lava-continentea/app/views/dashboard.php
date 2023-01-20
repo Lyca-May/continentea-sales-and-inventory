@@ -11284,14 +11284,49 @@ body.sidebar-toggled footer.sticky-footer {
 
     <title>Dashboard</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="views/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="views/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="views/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link rel ="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+  <script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script scr="https://cdn.datatables.net/searchbuilder/1.4.0/js/dataTables.searchBuilder.min.js"></script>
+  <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+   <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready( function () {
+          $('#search').keyup(function(){
+            search_table($(this).val());
+          });
+          function search_table(value){
+            $('#data tr').each(function(){
+              var found = 'false';
+              $(this).each(function(){
+                if($(this).text().toLowerCase().indexOf(value.toLowerCase())>=0)
+                {
+                  found  = 'true';
+                }
+              });
+              if(found=='true'){
+                $(this).show();
+              }
+              else{
+                $(this).hide();
+              }
+            })
+          }
+      } );
+    </script>
 
 </head>
 
@@ -11325,56 +11360,72 @@ body.sidebar-toggled footer.sticky-footer {
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+          <div class="sidebar-heading">
+              Product
+          </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?=site_url('LoginAccess/prod')?>" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Products</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?=site_url('LoginAccess/Supplyprod')?>" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Supply</span>
-                </a>
-            </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
-          
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Prod/prod')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Product History</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Prod/prodlist')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Manage Product</span>
+              </a>
+          </li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                People
-            </div>
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Customers</span></a>
-            </li>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              Supply
+          </div>
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('Supplier/supplier')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Suppliers</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Supply/Supplyprod')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Supply</span>
+              </a>
+          </li>
+          <!-- Nav Item - Utilities Collapse Menu -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/supply')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Suppliers</span></a>
-            </li>
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Users</span></a>
-            </li>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              People
+          </div>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+          <!-- Nav Item - Tables -->
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('Customer/customer')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Customers</span></a>
+          </li>
+
+
+
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Users</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider d-none d-md-block">
 
     
           
@@ -11494,37 +11545,29 @@ body.sidebar-toggled footer.sticky-footer {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                          </div>
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Sales
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                      </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                               Sales</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <?php echo $total_p['total_price']?>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <!-- User Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -11553,64 +11596,61 @@ body.sidebar-toggled footer.sticky-footer {
                         <!-- Area Chart -->
                         <div class="col-xl-10 col-lg-0 justify-content-center ">
                             <div class="card shadow mb-4">
-                             
                                 </div>
                                 <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">User Table</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                        <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+            <div class="card-header py-3">
+            <div>
+                  <div id="dataTable_filter" class="dataTables_filter"><label>
+                    <input id="search" type="search" class="form-control form-control-sm" placeholder="Search" aria-controls="dataTable"></label></div>
+                  </div>
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Users</h6>
+            <div id="dataTable_filter" class="dataTables_filter">
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+              </div>
+
+              </div>
+              <div class="row">
+              <div class="col-sm-12">
+              <table class="table table-bordered" id="data" width="100%" cellspacing="0">
+              <thead>
                                         <tr>
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>Password</th>
-                                        <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                     <?php foreach($users as $user):?>
-                                        <td><?=$user['id'] ?></td>
-                                        <td><?=$user['name'] ?></td>
-                                        <td><?=$user['username'] ?></td>
-                                        <td><?=$user['email'] ?></td>
-                                        <td><?=$user['password'] ?></td>
-                                        <td>
-                                            <form action="<?=site_url('LoginAccess/userdelete')?>"method="POST">
-                                                <input type="hidden" name="id" value="<?=$user['id']?>">
-                                                <input type="submit" class = "bg-primary text=light" value="Delete">
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form action="<?=site_url('LoginAccess/userupdate')?>"method="POST">
-                                                <input type="hidden" name="id" value="<?=$user['id']?>">
-                                                <input type="submit" class = "bg-primary text=light" value="Edit">
-                                            </form>
-                                        </td>
-
+                                        <td><?=$user ['id'] ?></td>
+                                        <td><?=$user ['name'] ?></td>
+                                        <td><?=$user ['username'] ?></td>
+                                        <td><?=$user ['email'] ?></td>
+                                        <td><?=$user ['password'] ?></td>
                                      </tr>
                                          <?php endforeach;?>
-                              </tbody>
+                                        </tbody>
                                 </table>
-                            </div>
+                          </div>
+                            <!-- </div> -->
                         </div>
-                    </div>
-
-                    
+                                    </div>       
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+<footer class="sticky-footer bg-white">
+<div class="container my-auto">
+<div class="copyright text-center my-auto">
+    <span>Copyright &copy; Continentea Cafe | PPG 2023</span>
+</div>
+</div>
+</footer>
+<!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -11659,7 +11699,5 @@ body.sidebar-toggled footer.sticky-footer {
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
-
 </html>

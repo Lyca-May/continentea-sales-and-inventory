@@ -11357,59 +11357,76 @@ body.sidebar-toggled footer.sticky-footer {
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+             <!-- Divider -->
+             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+<!-- Heading -->
+<div class="sidebar-heading">
+              Product
+          </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?=site_url('LoginAccess/prod')?>" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Products</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?=site_url('LoginAccess/Supplyprod')?>" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Supply</span>
-                </a>
-            </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Prod/prod')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Product History</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Prod/prodlist')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Manage Product</span>
+              </a>
+          </li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                People
-            </div>
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Customers</span></a>
-            </li>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              Supply
+          </div>
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('Supplier/supplier')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Suppliers</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Supply/Supplyprod')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Supply</span>
+              </a>
+          </li>
+          <!-- Nav Item - Utilities Collapse Menu -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/supply')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Suppliers</span></a>
-            </li>
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Users</span></a>
-            </li>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              People
+          </div>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+          <!-- Nav Item - Tables -->
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('Customer/customer')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Customers</span></a>
+          </li>
+
+
+
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Users</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider d-none d-md-block">
 
         </ul>
         <!-- End of Sidebar -->
@@ -11481,7 +11498,7 @@ body.sidebar-toggled footer.sticky-footer {
 
                     <!-- Page Heading -->
 
-                    <h1 class="h3 mb-0 text-gray-800">Manage Product</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Manage Product History</h1>
                     <br>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -11490,7 +11507,7 @@ body.sidebar-toggled footer.sticky-footer {
                   <div id="dataTable_filter" class="dataTables_filter"><label>
                     <input id="search" type="search" class="form-control form-control-sm" placeholder="Search" aria-controls="dataTable"></label></div>
                </div>
-      <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+      <h6 class="m-0 font-weight-bold text-primary">DataTables Product History</h6>
    </div>
    <div class="card-body">
       <div class="table-responsive">
@@ -11503,38 +11520,27 @@ body.sidebar-toggled footer.sticky-footer {
             </div>
             <div class="row">
                <div class="col-sm-12">
-               <table  id="data" width="100%" cellspacing="0">
+               <table class="table table-bordered" id="data" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                          
+                                            <!-- <th>ID</th> -->
                                             <th>Product</th>
                                             <th>Price</th>
                                             <th>Stocks</th>
                                             <th>Supplier Name</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                             
                                     <tbody>
                                       <tr>
                                         <?php foreach($products as $prod):?>
+
                                           <td><?=$prod ['id'] ?></td>
                                           <td><?=$prod ['prodname'] ?></td>
                                           <td><?=$prod ['price'] ?></td>
                                           <td><?=$prod ['stocks'] ?></td>
                                           <td><?=$prod ['supplier_name'] ?></td>
-                                          <td>
-                                              <form action="<?=site_url('LoginAccess/userdelete')?>"method="POST">
-                                                  <input type="hidden" name="id" value="<?=$prod['id']?>">
-                                                  <input type="submit" class = "bg-primary text=light" value="Delete">
-                                              </form>
-                                          </td>
-                                          <td>
-                                              <form action="<?=site_url('LoginAccess/userupdate')?>"method="POST">
-                                                  <input type="hidden" name="id" value="<?=$prod['id']?>">
-                                                  <input type="submit" class = "bg-primary text=light" value="Edit">
-                                              </form>
-                                          </td>
                                       </tr>
                                          <?php endforeach;?>
                                     </tbody>

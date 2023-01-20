@@ -25,6 +25,10 @@ class LoginAccess_model extends Model {
     {
         return $this->db->table('tblcustomer')->select_count('id','total_customer')->get();
     }
+    public function sales()
+    {
+        return $this->db->table('tblcustomer')->select_sum('total_price', 'total_price')->get();
+    }
     
 
     //for user
@@ -48,142 +52,15 @@ class LoginAccess_model extends Model {
         return $this->db->table('tblmidpro')->where('id',$id)->delete();
     }
 
-
-
-    // FOR PRODUCT
-    public function getallproduct(){
-        return $this->db->table('product')->get_all();
-    }
-    public function getprod($id){
-        return $this->db->table('product')->where('id', $id)->get();
-    }
-    public function updateprod($id, $prodname, $price, $quantity){
-        $data= [
-            'id' => $id, 
-            'prodname' => $prodname, 
-            'price' => $price,
-            'quantity' => $quantity
-        ];
-        $this->db->table('product')->where('id', $id)->update($data);
-    }
-    public function deleteProd($id){
-        return $this->db->table('product')->where('id',$id)->delete();
-    }
-    public function addProd($prodname, $price, $quantity){
-        $data=[
-            'prodname' => $prodname,
-            'price' => $price,
-            'quantity' => $quantity
-
-        ];  
-        return $this->db->table('product')->insert($data);
-    }
-
-
-
-    //for supplier
-    public function getallsupply(){
-        return $this->db->table('supplier')->get_all();
-    }
-    public function getsupply($id){
-        return $this->db->table('supplier')->where('id', $id)->get();
-    }
-    public function updatesupply($id, $name, $company, $address, $contact_no){
-        $data= [
-            'id' => $id, 
-            'name' => $name, 
-            'company' => $company,
-            'address' => $address,
-            'contact_no' => $contact_no
-        ];
-        return $this->db->table('supplier')->where('id', $id)->update($data);
-    }
-    public function deletesupply($id){
-        return $this->db->table('supplier')->where('id',$id)->delete();
-    }
-    public function addsupply($name, $company, $address, $contact_no){
-        $data=[
-            'name' => $name, 
-            'company' => $company,
-            'address' => $address,
-            'contact_no' => $contact_no
-        ];
-        
-        return $this->db->table('supplier')->insert($data);
-    }
-
-
-
-    //for customer
-    public function getallcustomer(){
-        return $this->db->table('tblcustomer')->get_all();
-    }
-    public function getcustomer($id){
-        return $this->db->table('tblcustomer')->where('id', $id)->get();
-    }
-    public function updatecustomer($id, $customer_name, $product, $price, $quantity, $total_price){
-        $data= [
-            'id' => $id, 
-            'customer_name' => $customer_name, 
-            'product' => $product,
-            'price' => $price,
-            'quantity' => $quantity,
-            'total_price' => $total_price
-
-        ];
-        return $this->db->table('tblcustomer')->where('id', $id)->update($data);
-    }
-    public function deletecustomer($id){
-        return $this->db->table('tblcustomer')->where('id',$id)->delete();
-    }
-    public function addcustomer($customer_name, $product, $price, $quantity, $total_price){
-        $data= [
-            'customer_name' => $customer_name, 
-            'product' => $product,
-            'price' => $price,
-            'quantity' => $quantity,
-            'total_price' => $total_price
-        ];   
-        return $this->db->table('tblcustomer')->insert($data);
-    }
-
-
-
-    //for supply
-    public function getallSupplyprod(){
-        return $this->db->table('tblsupply')->get_all();
-    }
-    public function getSupplyprod($id){
-        return $this->db->table('tblsupply')->where('supply_id', $id)->get();
-    }
-    public function updateSupplyprod($supply_id, $products, $stocks, $supplier_id){
-        $data= [
-            'supply_id' => $supply_id, 
-            'products' => $products,
-            'stocks' => $stocks,
-            'supplier_id' => $supplier_id
-
-        ];
-        return $this->db->table('tblsupply')->where('supply_id', $id)->update($data);
-    }
-    public function deleteSupplyprod($id){
-        return $this->db->table('tblsupply')->where('supply_id',$id)->delete();
-    }
-    public function addsupplyprod($products, $stocks, $supplier_name){
-        $data= [
-            'products' => $products,
-            'stocks' => $stocks,
-            'supplier_name' => $supplier_name
-        ];
-        $result=$this->db->table('tblsupply')->insert($data);
-        if($result){
-            return true;
-        }
-    }
-
-   //get supplier name for drop down
+   //get fields from different tables for drop down
     public function getallsuppliername(){
         return $this->db->table('supplier')->get_all();
+    }
+    public function getallprodname(){
+        return $this->db->table('products')->get_all();
+    }
+    public function getallpricename(){
+        return $this->db->table('tblsupply')->get_all();
     }
 
 }

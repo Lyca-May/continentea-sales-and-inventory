@@ -61,7 +61,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 $database['main'] = array(
     'driver'	=> 'mysql',
     'hostname'	=> 'localhost',
-    'port'		=> '3306',
+    'port'		=> '3307',
     'username'	=> 'root',
     'password'	=> '',
     'database'	=> 'lavalust',

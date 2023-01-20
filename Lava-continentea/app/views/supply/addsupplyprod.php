@@ -11321,60 +11321,77 @@ body.sidebar-toggled footer.sticky-footer {
                     <span>Dashboard</span></a>
             </li>
 
+          
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+          <div class="sidebar-heading">
+              Product
+          </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?=site_url('LoginAccess/prod')?>" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Products</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?=site_url('LoginAccess/Supplyprod')?>" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Supply</span>
-                </a>
-            </li>
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Prod/prod')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Product History</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Prod/prodlist')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Manage Product</span>
+              </a>
+          </li>
 
-                        <!-- Nav Item - Utilities Collapse Menu -->
-                    <!-- Divider -->
-            <hr class="sidebar-divider">
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                People
-            </div>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              Supply
+          </div>
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('Supplier/supplier')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Suppliers</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="<?=site_url('Supply/Supplyprod')?>" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Supply</span>
+              </a>
+          </li>
+          <!-- Nav Item - Utilities Collapse Menu -->
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Customers</span></a>
-            </li>
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/supply')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Suppliers</span></a>
-            </li>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              People
+          </div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Users</span></a>
-            </li>
+          <!-- Nav Item - Tables -->
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('Customer/customer')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Customers</span></a>
+          </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+
+
+          <li class="nav-item">
+              <a class="nav-link" href="<?=site_url('LoginAccess/_in')?>">
+                  <i class="fas fa-fw fa-table"></i>
+                  <span>Users</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider d-none d-md-block">
 
     
           
@@ -11450,7 +11467,7 @@ body.sidebar-toggled footer.sticky-footer {
                     <h1 class="h3 mb-2 text-gray-800">Manage Supplies</h1>
                     <div class="card shadow mb-4">    
                     <form action="<?=site_url('LoginAccess/AddSupplyprod')?>" method="POST"> 
-                    <div class="form-row">
+                         <div class="form-row">
                               <div class="col">
                                 <input type="text" name="products" id="products" class="form-control" placeholder="Product">
                                 <br>

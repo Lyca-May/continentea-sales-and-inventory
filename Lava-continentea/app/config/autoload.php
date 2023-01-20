@@ -93,6 +93,6 @@ $autoload['helpers'] = array('html','url');
 |
 |	$autoload['model'] = array('model1_model', 'model2_model')
 */
-$autoload['models'] = array('User_model','LoginAccess_model');
+$autoload['models'] = array('User_model','LoginAccess_model', 'Prodmodel', 'Customermodel', 'Suppliermodel', 'Supplymodel');
 
 ?>
